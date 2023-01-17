@@ -1,9 +1,58 @@
-import React from 'react'
+import React from "react";
+import tw from "twin.macro";
 
-function store() {
+const StoreContainer = tw.div`
+pt-[var(--header-height)]
+h-screen
+w-full
+bg-slate-300
+`;
+
+
+const ProductContainer = tw.div`
+h-full
+w-full
+bg-slate-900
+grid
+grid-cols-4
+gap-4
+p-4
+overflow-y-scroll
+`;
+
+const Product = tw.div`
+h-60
+bg-slate-700
+rounded-md
+`;
+
+function Store() {
   return (
-    <div>Store</div>
-  )
+    <StoreContainer>
+      <ProductContainer>
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      </ProductContainer>
+    </StoreContainer>
+  );
 }
 
-export default store
+export default Store;

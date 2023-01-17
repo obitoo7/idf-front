@@ -1,9 +1,9 @@
 import React from 'react'
 
-function tools() {
+function Tools() {
   return (
     <div>tools</div>
   )
 }
 
-export default tools
+export default Tools

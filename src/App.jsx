@@ -1,23 +1,23 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Home from "./pages/home";
-import Store from "./pages/store";
-import Blogs from "./pages/blogs";
-import Diet from "./pages/diet";
-import Tools from "./pages/tools";
+import Home from "./pages/Home";
+import Store from "./pages/Store";
+import Blogs from "./pages/Blogs";
+import Diet from "./pages/Diet";
+import Tools from "./pages/Tools";
 
 function App() {
   return (
-    <>
-    <Header/>
+    <div>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/blogs" element={<Blogs/>} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/diet" element={<Diet />} />
         <Route path="/tools" element={<Tools />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
