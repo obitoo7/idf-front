@@ -4,6 +4,7 @@ import Slides from "../components/Slides/Slides";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import image1 from "../assets/Through-the-park-bro.svg"
 
 const HomeContainer = tw.div`
 w-full
@@ -25,11 +26,8 @@ overflow-hidden
 bg-slate-800
 `;
 
-const Img = tw.img`
-rounded-md
-`;
-
 const ArticleContainer = tw.div`
+font-[var(--font-family)]
 w-full
 //small devices
 max-sm:grid
@@ -37,8 +35,7 @@ max-sm:bg-slate-800
 grid
 grid-flow-col
 gap-4
-p-4
-`;
+p-4`;
 
 const ArticleSection = tw.div`
 col-span-2
@@ -80,64 +77,99 @@ overflow-x-scroll
 grid 
 grid-flow-col 
 gap-4 
-p-4`
+p-4`;
 
 const Videos = tw.div`
-h-48 w-96 bg-slate-800`
+h-48 w-96 bg-slate-800`;
 
 const ToolsContainer = tw.div`
-w-full p-4 grid grid-flow-col place-items-center`
+w-full p-4 grid grid-flow-col place-items-center`;
 
 const Footer = tw.div`
-h-[50vh] w-full bg-slate-900`
+h-[50vh] w-full bg-slate-900`;
 
 function Home() {
+  const comp = useRef();
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: comp.current,
+        start:"top",
+        end: "bottom",
+        toggleActions:"restart none none none",
+        pin: true,
+        markers: true
+      })
+
+      gsap.to("#image1", {
+        opacity:1,
+        y:200,
+        ScrollTrigger:{
+          trigger: "#image1",
+          start:"50% bottom",
+          end: "bottom",
+          toggleActions:"restart none none none",
+          scrub:true,
+          markers: true
+        }
+      })
+
+    }, comp);
+    return () => ctx.revert();
+  }, []);
   return (
     <HomeContainer>
+      {/* slides */}
       <Slides />
-      <AnimationIntro></AnimationIntro>
+      {/* animtion intro */}
+      <AnimationIntro ref={comp}>
+      <img id="image1" style={{position:"relative",height:"100%", width:"100%", top:"10%"}} src={image1} alt="image 1" />
+      <img id="image2" style={{position:"relative",height:"100%", width:"100%", top:"100%"}} src={image1} alt="image 1" />
+      </AnimationIntro>
       {/* article content section */}
       <Label>Article's</Label>
       <ArticleContainer>
         <ArticleNav>
-        <ArticleNavItems/>
-        <ArticleNavItems/>
-        <ArticleNavItems/>
-        <ArticleNavItems/>
-        <ArticleNavItems/>
+          <ArticleNavItems />
+          <ArticleNavItems />
+          <ArticleNavItems />
+          <ArticleNavItems />
+          <ArticleNavItems />
         </ArticleNav>
         <ArticleSection>
-        <ArticleCard/>
-        <ArticleCard/>
-        <ArticleCard/>
-        <ArticleCard/>
-        <ArticleCard/>
-        <ArticleCard/>
+          <ArticleCard />
+          <ArticleCard />
+          <ArticleCard />
+          <ArticleCard />
+          <ArticleCard />
+          <ArticleCard />
         </ArticleSection>
       </ArticleContainer>
       {/* video section */}
       <Label>Video's</Label>
       <VideoContainer>
-      <Videos/>
-      <Videos/>
-      <Videos/>
-      <Videos/>
-      <Videos/>
-      <Videos/>
-      <Videos/>
-      <Videos/>
-      <Videos/>
+        <Videos />
+        <Videos />
+        <Videos />
+        <Videos />
+        <Videos />
+        <Videos />
+        <Videos />
+        <Videos />
+        <Videos />
       </VideoContainer>
       {/* tools */}
       <Label>Tool's</Label>
       <ToolsContainer>
-      <ArticleCard/>
-      <ArticleCard/>
-      <ArticleCard/>
-      <ArticleCard/>
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
       </ToolsContainer>
       {/* footer */}
-      <Footer/>
+      <Footer />
     </HomeContainer>
   );
 }

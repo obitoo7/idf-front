@@ -3,6 +3,12 @@ import Carousel from "react-bootstrap/Carousel";
 import tw from "twin.macro";
 import data from "../../../fakedata/data.json";
 
+const Title = tw.h1`
+text-[4rem]`
+
+const Para = tw.p`
+text-[2rem]`
+
 
 const Slides = () => {
   useEffect(() => {
@@ -15,8 +21,8 @@ const Slides = () => {
           <Carousel.Item key={i}>
             <img tw="max-h-screen xl:h-screen lg:h-screen" className="d-block w-100" src={list.img} alt="slide" />
             <Carousel.Caption>
-              <h3>{list.title}</h3>
-              <p>{list.para}</p>
+              <Title>{list.title}</Title>
+              <Para>{list.para}</Para>
             </Carousel.Caption>
           </Carousel.Item>
         );

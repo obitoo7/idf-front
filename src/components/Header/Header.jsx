@@ -8,8 +8,9 @@ import img from "../../assets/react.svg";
 import tw from "twin.macro";
 import { useState } from "react";
 
+const NavDiv = tw.div`h-28 w-full bg-slate-900 transition invisible`
 const Header = () => {
-  const NavDiv = tw.div`h-28 w-full bg-slate-900 transition invisible`
+  
   return (
     <div className="fixed-top">
     <Navbar expand="xl" className="nav-container">
