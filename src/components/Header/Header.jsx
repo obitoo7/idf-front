@@ -12,7 +12,7 @@ const Header = () => {
   const NavDiv = tw.div`h-28 w-full bg-slate-900 transition invisible`
   return (
     <div className="fixed-top">
-    <Navbar expand="xl" tw="bg-slate-500 " className="nav-container">
+    <Navbar expand="xl" className="nav-container">
       <Container fluid>
         <Navbar.Brand tw="text-slate-50">
           <img

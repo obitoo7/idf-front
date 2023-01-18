@@ -1,6 +1,6 @@
 .nav-container{
     min-height: var(--header-height);
-    // background: var(--header-background-color);
+    background: var(--header-background-color);
     box-shadow: var(--box-shadow);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -12,24 +12,15 @@
     font-weight: 500;
   }
   
-  
-  
   .link{
     transition: 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: 0 0px 8px hsl(150, 100%, 50%);
+    box-shadow: var(--box-shadow);
     display: flex;
     padding: 0.6rem;
     border-radius: 7px;
     text-decoration: none;
-    background-color: hsl(150, 100%, 80%);
     color: #000;
     margin: 1rem;
-  }
-  
-  .category-container{
-    height: 6rem;
-    min-width: 100%;
-    background-color: red;
   }
   
   span{

@@ -85,6 +85,12 @@ p-4`
 const Videos = tw.div`
 h-48 w-96 bg-slate-800`
 
+const ToolsContainer = tw.div`
+w-full p-4 grid grid-flow-col place-items-center`
+
+const Footer = tw.div`
+h-[50vh] w-full bg-slate-900`
+
 function Home() {
   return (
     <HomeContainer>
@@ -123,7 +129,15 @@ function Home() {
       <Videos/>
       </VideoContainer>
       {/* tools */}
-      
+      <Label>Tool's</Label>
+      <ToolsContainer>
+      <ArticleCard/>
+      <ArticleCard/>
+      <ArticleCard/>
+      <ArticleCard/>
+      </ToolsContainer>
+      {/* footer */}
+      <Footer/>
     </HomeContainer>
   );
 }
