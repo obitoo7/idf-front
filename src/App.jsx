@@ -5,6 +5,7 @@ import Store from "./pages/Store";
 import Blogs from "./pages/Blogs";
 import Diet from "./pages/Diet";
 import Tools from "./pages/Tools";
+import ScrollIntro from "./components/scrollIntro/ScrollIntro";
 
 function App() {
   return (

@@ -4,27 +4,14 @@ import Slides from "../components/Slides/Slides";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import image1 from "../assets/Through-the-park-bro.svg"
+import ScrollIntro from "../components/scrollIntro/ScrollIntro";
+
 
 const HomeContainer = tw.div`
 w-full
+pt-[var(--header-height)]
 max-sm:pt-[var(--header-height)]`;
 
-const AnimationIntro = tw.div`
-max-sm:grid
-max-sm:grid-cols-1
-max-sm:gap-4
-max-sm:p-4
-sm:grid
-sm:grid-cols-1
-sm:gap-4
-sm:p-4
-xl:grid
-xl:grid-cols-2
-h-screen
-overflow-hidden
-bg-slate-800
-`;
 
 const ArticleContainer = tw.div`
 font-[var(--font-family)]
@@ -39,7 +26,6 @@ p-4`;
 
 const ArticleSection = tw.div`
 col-span-2
-h-32 
 w-full 
 grid 
 grid-cols-3
@@ -52,25 +38,19 @@ mb-0
 `;
 
 const ArticleNav = tw.div`
-col-span-8
+col-span-4
 grid
 grid-flow-row
 items-center
 gap-4
 p-4
+rounded-lg  
 bg-slate-900`;
 
 const ArticleNavItems = tw.div`
 h-32 
 rounded-lg
 bg-slate-500`;
-
-const Section = tw.div`
-min-w-[16rem]
-w-80
-h-48
-rounded-lg
-bg-slate-300`;
 
 const VideoContainer = tw.div`
 overflow-x-scroll
@@ -89,46 +69,13 @@ const Footer = tw.div`
 h-[50vh] w-full bg-slate-900`;
 
 function Home() {
-  const comp = useRef();
-  gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to("#image1", {
-        scrollTrigger:{
-          trigger: comp.current,
-          start: "top",
-          end: "bottom",
-          scrub: true,
-          pin: true,
-          markers: true
-        }
-      })
-
-      // gsap.to("#image1", {
-      //   y:200,
-      //   scrollTrigger:{
-      //     trigger: "#image1",
-      //     start: "bottom",
-      //     end: "80% bottom",
-      //     toggleActions:"restart none none none",
-      //     scrub:true,
-      //     markers: true
-      //   }
-      // })
-
-    }, comp);
-    return () => ctx.revert();
-  }, []);
   return (
     <HomeContainer>
       {/* slides */}
       <Slides />
       {/* animtion intro */}
-      <AnimationIntro ref={comp}>
-      <img id="image1" style={{position:"relative",height:"100%", width:"100%", top:"10%"}} src={image1} alt="image 1" />
-      <img id="image2" style={{position:"relative",height:"100%", width:"100%", top:"100%"}} src={image1} alt="image 1" />
-      </AnimationIntro>
+      <ScrollIntro/>
       {/* article content section */}
       <Label>Article's</Label>
       <ArticleContainer>
@@ -136,13 +83,8 @@ function Home() {
           <ArticleNavItems />
           <ArticleNavItems />
           <ArticleNavItems />
-          <ArticleNavItems />
-          <ArticleNavItems />
         </ArticleNav>
         <ArticleSection>
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
           <ArticleCard />
           <ArticleCard />
           <ArticleCard />
