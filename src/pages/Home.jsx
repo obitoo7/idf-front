@@ -94,27 +94,28 @@ function Home() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: comp.current,
-        start:"top",
-        end: "bottom",
-        toggleActions:"restart none none none",
-        pin: true,
-        markers: true
-      })
-
       gsap.to("#image1", {
-        opacity:1,
-        y:200,
-        ScrollTrigger:{
-          trigger: "#image1",
-          start:"50% bottom",
+        scrollTrigger:{
+          trigger: comp.current,
+          start: "top",
           end: "bottom",
-          toggleActions:"restart none none none",
-          scrub:true,
+          scrub: true,
+          pin: true,
           markers: true
         }
       })
+
+      // gsap.to("#image1", {
+      //   y:200,
+      //   scrollTrigger:{
+      //     trigger: "#image1",
+      //     start: "bottom",
+      //     end: "80% bottom",
+      //     toggleActions:"restart none none none",
+      //     scrub:true,
+      //     markers: true
+      //   }
+      // })
 
     }, comp);
     return () => ctx.revert();
