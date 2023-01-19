@@ -73,7 +73,7 @@ function ScrollIntro() {
         })
 
         gsap.to(".simp4",
-        { y: -250,
+        { y: -300,
           scrollTrigger:{
             trigger: ".simp4",
             start: "top 80%",
