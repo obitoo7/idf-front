@@ -23,7 +23,7 @@ function ScrollIntro() {
             start:"top 80%",
             end:"top 30%",
             scrub: 1,
-            markers: true
+            // markers: true
           }
         })
         gsap.to("#simp", {
@@ -34,7 +34,7 @@ function ScrollIntro() {
             start: "top 30%",
             end: "top 20%",
             scrub: 1,
-            markers: true
+            // markers: true
           }
         })
 
