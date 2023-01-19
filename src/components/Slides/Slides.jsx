@@ -19,7 +19,7 @@ const Slides = () => {
       {data.slides.map((list, i) => {
         return (
           <Carousel.Item key={i}>
-            <img tw="max-h-screen object-cover p-4 pt-10 xl:h-[calc(100vh - var(--header-height))] lg:h-screen" className="d-block w-100" src={list.img} alt="slide" />
+            <img tw="max-h-screen object-cover xl:h-[calc(100vh - var(--header-height))] lg:h-screen" className="d-block w-100" src={list.img} alt="slide" />
             <Carousel.Caption>
               <Title>{list.title}</Title>
               <Para>{list.para}</Para>

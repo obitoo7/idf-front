@@ -8,6 +8,7 @@ import ScrollIntro from "../components/scrollIntro/ScrollIntro";
 
 
 const HomeContainer = tw.div`
+overflow-x-hidden
 w-full
 pt-[var(--header-height)]
 max-sm:pt-[var(--header-height)]`;
