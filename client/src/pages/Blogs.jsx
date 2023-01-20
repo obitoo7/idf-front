@@ -9,6 +9,7 @@ bg-slate-800
 w-full
 grid
 grid-cols-3
+max-sm:grid-cols-1
 gap-4
 overflow-y-scroll`
 

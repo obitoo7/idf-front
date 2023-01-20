@@ -10,6 +10,8 @@ bg-slate-300
 
 
 const ProductContainer = tw.div`
+max-sm:grid
+max-sm:grid-cols-2
 h-full
 w-full
 bg-slate-900
