@@ -1,9 +1,19 @@
+import { useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import gsap from 'gsap';
 
 function ArticleCard() {
+
+  const cardref = useRef()
+
+  useEffect(()=>{
+    gsap.to(cardref.current, {
+      y: -10
+    })
+  }, [])
   return (
-    <Card variant="dark">
+    <Card variant="dark" ref={cardref}>
       <Card.Img variant="top" src="https://img.freepik.com/free-vector/blogging-illustration-concept_114360-788.jpg?size=626&ext=jpg&ga=GA1.2.533651669.1673186776&semt=sph" />
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
@@ -11,7 +21,6 @@ function ArticleCard() {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
   );

@@ -1,5 +1,6 @@
 .nav-container{
     min-height: var(--header-height);
+    max-height: var(--header-height);
     background: var(--header-background-color);
     box-shadow: var(--box-shadow);
     backdrop-filter: blur(10px);

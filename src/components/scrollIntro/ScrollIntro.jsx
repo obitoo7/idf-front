@@ -20,7 +20,6 @@ top-[115%]
 left-14
 object-cover
 rounded-[2rem]
-opacity-[0.9]
 drop-shadow-[var(--box-shadow)]
 z-[2]
 
@@ -39,7 +38,6 @@ w-[34rem]
 top-[120%]
 object-cover
 rounded-[2rem]
-opacity-[0.9]
 drop-shadow-[var(--box-shadow)]
 z-[2]
 

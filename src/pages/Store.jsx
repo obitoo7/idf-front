@@ -29,6 +29,7 @@ rounded-md
 `;
 
 function Store() {
+  
   return (
     <StoreContainer>
       <ProductContainer>

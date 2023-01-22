@@ -6,6 +6,7 @@ import Blogs from "./pages/Blogs";
 import Diet from "./pages/Diet";
 import Tools from "./pages/Tools";
 import ScrollIntro from "./components/scrollIntro/ScrollIntro";
+// import ProductContainer from "./components/ProductContainer/ProductContainer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/tools" element={<Tools />} />
       </Routes>
     </div>
+    // <ProductContainer/>
   );
 }
 

@@ -4,7 +4,6 @@ import Slides from "../components/Slides/Slides";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ScrollIntro from "../components/scrollIntro/ScrollIntro";
 
-
 // component tree:
 // HomeContainer -> main div which contains all the elements
 // ArticleContainer -> ArticleNav & ArticleSection -> ArticleContainer has a child name ArticleSection & ArticleNav
@@ -20,18 +19,20 @@ w-full
 pt-[var(--header-height)]
 max-sm:pt-[var(--header-height)]`;
 
-
 const ArticleMainContainer = tw.div`
-w-full grid grid-flow-col items-center`
+w-full grid grid-flow-col items-center`;
 
 const Articles = tw.div`
-grid grid-flow-col items-center gap-4`
+grid grid-flow-col items-center gap-4
+max-sm:grid-flow-row
+max-sm:p-4`;
 
 const ArticleNavContainer = tw.div`
-grid grid-flow-row p-4 gap-4 min-w-[20rem]`
+grid grid-flow-row p-4 gap-4 min-w-[20rem]
+max-sm:hidden`;
 
 const ArticleNavs = tw.div`
-h-32 rounded-xl bg-slate-800`
+h-32 rounded-xl bg-slate-800`;
 
 const Label = tw.label`
 text-[4rem] max-sm:text-[3rem]
@@ -63,28 +64,28 @@ const Footer = tw.div`
 h-[50vh] w-full bg-slate-900`;
 
 function Home() {
-
   return (
     <HomeContainer>
       {/* slides */}
       <Slides />
       {/* animtion intro */}
       {/* <ScrollIntro/> */}
-      <ScrollIntro/>
+      <ScrollIntro />
       {/* article content section */}
       <Label>Article's</Label>
       <ArticleMainContainer>
         <ArticleNavContainer>
-        <ArticleNavs></ArticleNavs>
-        <ArticleNavs></ArticleNavs>
-        <ArticleNavs></ArticleNavs>
-        <ArticleNavs></ArticleNavs>
-
+          <ArticleNavs>
+            
+          </ArticleNavs>
+          <ArticleNavs></ArticleNavs>
+          <ArticleNavs></ArticleNavs>
+          <ArticleNavs></ArticleNavs>
         </ArticleNavContainer>
         <Articles>
-        <ArticleCard/>
-        <ArticleCard/>
-        <ArticleCard/>
+          <ArticleCard />
+          <ArticleCard />
+          <ArticleCard />
         </Articles>
       </ArticleMainContainer>
       {/* video section */}
