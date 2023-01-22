@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import tw from "twin.macro";
+import fitlogo from '../../assets/fitlogo.jpeg'
 import img from "../../assets/react.svg";
 import img2 from "../../assets/protp.jpg";
 
@@ -47,13 +48,13 @@ const Header = () => {
         <Container fluid>
           <Navbar.Brand tw="text-slate-50">
             <img
-              src={img}
+              src={fitlogo}
               width="30"
               height="30"
               className="logo d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt="ideatofit logo"
             />{" "}
-            <span className="brandname">React Bootstrap</span>
+            <span className="brandname">Ideatofit</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
