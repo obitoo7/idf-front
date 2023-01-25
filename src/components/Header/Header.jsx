@@ -6,55 +6,53 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import tw from "twin.macro";
-import fitlogo from '../../assets/fitlogo.jpeg'
+import fitlogo from "../../assets/idflogo.png";
 import img from "../../assets/react.svg";
 import img2 from "../../assets/protp.jpg";
+import protienGif from "../../assets/protein.png";
+import equipmentPng from "../../assets/gym.png";
+import supplimentPng from "../../assets/vitamin.png";
 
-const NavDiv = tw.div`h-48 w-full p-4 bg-slate-900 rounded-lg flex flex-row items-center justify-between`;
+const NavDiv = tw.div`h-48 w-full p-4 bg-white shadow-lg rounded-lg flex flex-row items-center justify-between`;
 const Header = () => {
   const [show, setShow] = useState(false); //state for component should visible or not
 
   let timeoutId; // it will contain the timeout id
 
   /*
-  * There is a mouseenter event listner on the Link comp
-  * the mouseenter event will fire the function named onEnter
-  * on fired fire clear the previously setted timeout using its id
-  * and then the show state will get changed to true
-  * this will make the component visible
+   * There is a mouseenter event listner on the Link comp
+   * the mouseenter event will fire the function named onEnter
+   * on fired fire clear the previously setted timeout using its id
+   * and then the show state will get changed to true
+   * this will make the component visible
    */
   const onEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
-    } else {
-      console.log("timeout chalu nhi hai");
     }
     setShow(true);
   };
 
   /*
-  * when the mouseleave will fire the onLeave
-  * it will set the timeout so the component dosen't get hidden immediately after the user leave the comp
-  */
+   * when the mouseleave will fire the onLeave
+   * it will set the timeout so the component dosen't get hidden immediately after the user leave the comp
+   */
   const onLeave = () => {
     timeoutId = setTimeout(() => {
       setShow(false);
-    }, 1500); 
+    }, 700);
   };
 
   return (
     <div className="fixed-top">
       <Navbar expand="xl" className="nav-container">
         <Container fluid>
-          <Navbar.Brand tw="text-slate-50">
+          <Navbar.Brand tw="text-black">
             <img
               src={fitlogo}
-              width="30"
-              height="30"
               className="logo d-inline-block align-top"
               alt="ideatofit logo"
             />{" "}
-            <span className="brandname">Ideatofit</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -120,24 +118,29 @@ const Header = () => {
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
       >
-        <div tw="h-full w-full m-2 bg-orange-600 rounded-lg overflow-hidden relative">
-          <img src={img2} tw="h-full w-full object-cover z-0 "/>
-          <div tw="bg-slate-900 h-full w-full absolute z-10"></div>
+        <div tw="h-full w-full m-2 rounded-lg overflow-hidden grid place-items-center">
+          <img
+            src={protienGif}
+            tw="h-[100%] w-[25%]"
+            alt=""
+          />
+          <span tw="text-lg">Mass Gainers</span>
         </div>
-        <div tw="h-full w-full m-2 bg-orange-600 rounded-lg overflow-hidden">
-        <img src={img2} tw="h-full w-full object-cover"/>
+        <div tw="h-full w-full m-2 rounded-lg overflow-hidden grid place-items-center">
+          <img
+            src={equipmentPng}
+            tw="h-[100%] w-[25%]"
+            alt=""
+          />
+          <span tw="text-lg">Mass Gainers</span>
         </div>
-        <div tw="h-full w-full m-2 bg-orange-600 rounded-lg overflow-hidden">
-        <img src={img2} tw="h-full w-full object-cover"/>
-        </div>
-        <div tw="h-full w-full m-2 bg-orange-600 rounded-lg overflow-hidden">
-        <img src={img2} tw="h-full w-full object-cover"/>
-        </div>
-        <div tw="h-full w-full m-2 bg-orange-600 rounded-lg overflow-hidden">
-        <img src={img2} tw="h-full w-full object-cover"/>
-        </div>
-        <div tw="h-full w-full m-2 bg-orange-600 rounded-lg overflow-hidden">
-        <img src={img2} tw="h-full w-full object-cover"/>
+        <div tw="h-full w-full m-2 rounded-lg overflow-hidden grid place-items-center">
+          <img
+            src={supplimentPng}
+            tw="h-[100%] w-[25%]"
+            alt=""
+          />
+          <span tw="text-lg">Mass Gainers</span>
         </div>
       </NavDiv>
     </div>

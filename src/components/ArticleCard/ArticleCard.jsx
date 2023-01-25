@@ -2,24 +2,19 @@ import { useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import gsap from 'gsap';
+import tw from 'twin.macro';
 
-function ArticleCard() {
+function ArticleCard(props) {
 
   const cardref = useRef()
 
-  useEffect(()=>{
-    gsap.to(cardref.current, {
-      y: -10
-    })
-  }, [])
   return (
-    <Card variant="dark" ref={cardref}>
-      <Card.Img variant="top" src="https://img.freepik.com/free-vector/blogging-illustration-concept_114360-788.jpg?size=626&ext=jpg&ga=GA1.2.533651669.1673186776&semt=sph" />
+    <Card variant="dark" ref={cardref} tw='hover:scale-[1.02] transition'>
+      <Card.Img variant="top" src={props.src} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{props.title}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {props.desc}
         </Card.Text>
       </Card.Body>
     </Card>

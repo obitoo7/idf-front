@@ -1,8 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import tw from "twin.macro";
 import Slides from "../components/Slides/Slides";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ScrollIntro from "../components/scrollIntro/ScrollIntro";
+import { Route, Routes } from "react-router-dom";
+import fkdata from '../../fakedata/data.json';
+import gsap from "gsap";
+import { Tween } from "gsap/gsap-core";
 
 // component tree:
 // HomeContainer -> main div which contains all the elements
@@ -32,7 +36,7 @@ grid grid-flow-row p-4 gap-4 min-w-[20rem]
 max-sm:hidden`;
 
 const ArticleNavs = tw.div`
-h-32 rounded-xl bg-slate-800`;
+h-32 rounded-xl bg-slate-800 transition hover:scale-[1.02]`;
 
 const Label = tw.label`
 text-[4rem] max-sm:text-[3rem]
@@ -53,7 +57,7 @@ h-48 w-96 bg-slate-800`;
 const ToolsContainer = tw.div`
 w-full 
 p-4 
-grid 
+grid
 grid-flow-col 
 gap-4
 max-sm:grid
@@ -63,11 +67,38 @@ place-items-center`;
 const Footer = tw.div`
 h-[50vh] w-full bg-slate-900`;
 
-function Home() {
+const Home = () => {
+  const [sect, setSect] = useState(0);
+  const [whichCategoryToDisplay, setWhichCategoryToDisplay] = useState([])
+
+  useEffect(() => {
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count > 1) {
+        count = 0;
+      } else count++;
+      setSect(count);
+      setWhichCategoryToDisplay(fkdata['top'][count])
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <HomeContainer>
       {/* slides */}
       <Slides />
+      <Routes>
+        <Route
+          path="/tools/bmicalculator"
+          element={
+            <div tw="h-screen w-full bg-slate-800">
+              hello there my name is shivam pal
+            </div>
+          }
+        />
+      </Routes>
       {/* animtion intro */}
       {/* <ScrollIntro/> */}
       <ScrollIntro />
@@ -75,17 +106,22 @@ function Home() {
       <Label>Article's</Label>
       <ArticleMainContainer>
         <ArticleNavContainer>
-          <ArticleNavs>
-            
-          </ArticleNavs>
-          <ArticleNavs></ArticleNavs>
-          <ArticleNavs></ArticleNavs>
-          <ArticleNavs></ArticleNavs>
+          {
+            fkdata['top'].map((list, i)=>{
+              return <ArticleNavs css={[i === sect ? tw`bg-amber-600`:""]}/>
+            })
+          }
+          {/* <ArticleNavs css={[sect === 0 ? tw`bg-amber-700` : ""]}></ArticleNavs>
+          <ArticleNavs css={[sect === 1 ? tw`bg-amber-700` : ""]}></ArticleNavs>
+          <ArticleNavs css={[sect === 2 ? tw`bg-amber-700` : ""]}></ArticleNavs>
+          <ArticleNavs css={[sect === 3 ? tw`bg-amber-700` : ""]}></ArticleNavs> */}
         </ArticleNavContainer>
         <Articles>
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
+          {
+            whichCategoryToDisplay.map((lis)=>{
+              return <ArticleCard src={lis['img']} title={lis['title']} desc={lis['description']}/>
+            })
+          }
         </Articles>
       </ArticleMainContainer>
       {/* video section */}
@@ -113,6 +149,6 @@ function Home() {
       <Footer />
     </HomeContainer>
   );
-}
+};
 
 export default Home;
