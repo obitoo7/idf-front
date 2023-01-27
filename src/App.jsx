@@ -8,6 +8,7 @@ import Blogs from "./pages/Blogs";
 import Diet from "./pages/Diet";
 import Tools from "./pages/Tools";
 import Bmicalc from "./container/bmicalc";
+import BlogContent from "./pages/BlogContent";
 
 //other imports
 import ScrollIntro from "./components/scrollIntro/ScrollIntro";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogContent />} />
         <Route path="/diet" element={<Diet />} />
         <Route path="/tools" element={<Tools />}>
         </Route>

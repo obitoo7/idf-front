@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// this are the styled components not the actual components
 import {
   HomeContainer,
   Label,
@@ -18,6 +19,7 @@ import Slides from "../components/Slides/Slides";
 import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ScrollIntro from "../components/scrollIntro/ScrollIntro";
 import fkdata from "../../fakedata/data.json";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [sect, setSect] = useState(0);
@@ -26,7 +28,7 @@ const Home = () => {
   useEffect(() => {
     let count = 0;
     const interval = setInterval(() => {
-      count = count === fkdata["top"].length - 1 ? 0 : (count = count + 1);
+      count = count === fkdata["top"].length - 1 ? 0 : (count += 1);
       setSect(count);
       setWhichCategoryToDisplay(fkdata["top"][count]);
     }, 5000);
@@ -38,41 +40,41 @@ const Home = () => {
   return (
     <HomeContainer>
       <Slides />
+
       <ScrollIntro />
+
       <Label>Article's</Label>
       <ArticleMainContainer>
         <ArticleNavContainer>
           {fkdata["top"].map((list, i) => {
-            return <ArticleNavs css={[i === sect ? tw`bg-amber-600` : ""]} />;
+            return (
+              <ArticleNavs
+                css={[i === sect ? tw`bg-amber-600` : ""]}
+              >
+                <span className=""></span>
+              </ArticleNavs>
+            );
           })}
         </ArticleNavContainer>
+
         <Articles>
           {whichCategoryToDisplay.map((lis) => {
             return (
-              <ArticleCard
-                src={lis["img"]}
-                title={lis["title"]}
-                desc={lis["description"]}
-              />
+              <Link to={lis["path"]}>
+                <ArticleCard
+                  src={lis["img"]}
+                  title={lis["title"]}
+                  desc={lis["description"]}
+                />
+              </Link>
             );
           })}
         </Articles>
       </ArticleMainContainer>
       <Label>Video's</Label>
-      <VideoContainer>
-        <Videos />
-        <Videos />
-        <Videos />
-        <Videos />
-        <Videos />
-        <Videos />
-        <Videos />
-        <Videos />
-        <Videos />
-      </VideoContainer>
+      <VideoContainer></VideoContainer>
       <Label>Tool's</Label>
-      <ToolsContainer>
-      </ToolsContainer>
+      <ToolsContainer></ToolsContainer>
       <Footer />
     </HomeContainer>
   );

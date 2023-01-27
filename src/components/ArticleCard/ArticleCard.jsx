@@ -9,7 +9,7 @@ function ArticleCard(props) {
   const cardref = useRef()
 
   return (
-    <Card variant="dark" ref={cardref} tw='hover:scale-[1.02] transition'>
+    <Card variant="dark" ref={cardref} tw='hover:scale-[1.02] transition drop-shadow-lg border-none'>
       <Card.Img variant="top" src={props.src} />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>

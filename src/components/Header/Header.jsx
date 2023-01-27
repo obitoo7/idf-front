@@ -20,12 +20,13 @@ const Header = () => {
   let timeoutId; // it will contain the timeout id
 
   /*
-   * There is a mouseenter event listner on the Link comp
+   * There is a mouseenter event listner on the Link 
    * the mouseenter event will fire the function named onEnter
-   * on fired fire clear the previously setted timeout using its id
-   * and then the show state will get changed to true
+   * on fired clear the previously setted timeout using its id 
+   * and then the show state will get change to true
    * this will make the component visible
    */
+
   const onEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -37,6 +38,7 @@ const Header = () => {
    * when the mouseleave will fire the onLeave
    * it will set the timeout so the component dosen't get hidden immediately after the user leave the comp
    */
+
   const onLeave = () => {
     timeoutId = setTimeout(() => {
       setShow(false);
@@ -107,7 +109,7 @@ const Header = () => {
               onMouseEnter={onEnter}
               onMouseLeave={onLeave}
             >
-              <span class="material-symbols-rounded">volunteer_activism</span>
+              <span className="material-symbols-rounded">volunteer_activism</span>
               <span>Donate</span>
             </Link>
           </Navbar.Collapse>

@@ -6,22 +6,21 @@ w-full
 pt-[var(--header-height)]
 max-sm:pt-[var(--header-height)]`;
 
-
 export const ArticleMainContainer = tw.div`
-w-full 
-grid 
+w-full
+grid
 grid-flow-col 
-items-center`;
-
+items-center
+`;
 
 export const Articles = tw.div`
 grid 
 grid-flow-col 
-items-center gap-4
+items-center 
+gap-4
 
 max-sm:grid-flow-row
 max-sm:p-4`;
-
 
 export const ArticleNavContainer = tw.div`
 grid 
