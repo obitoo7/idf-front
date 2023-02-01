@@ -20,6 +20,7 @@ import ArticleCard from "../components/ArticleCard/ArticleCard";
 import ScrollIntro from "../components/scrollIntro/ScrollIntro";
 import fkdata from "../../fakedata/data.json";
 import { Link } from "react-router-dom";
+import Testimonials from "../components/Testimonals/Testimonals";
 
 const Home = () => {
   const [sect, setSect] = useState(0);
@@ -75,6 +76,7 @@ const Home = () => {
       <VideoContainer></VideoContainer>
       <Label>Tool's</Label>
       <ToolsContainer></ToolsContainer>
+      <Testimonials/>
       <Footer />
     </HomeContainer>
   );
