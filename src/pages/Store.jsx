@@ -9,7 +9,7 @@ import {
 import tw from "twin.macro";
 import { useEffect } from "react";
 import ProductCard from "../components/ProductsCard/ProductCard";
-import ProductCategory from "../components/ProductCategory/ProductCategory";
+import ProductCategory from "../components/CategoryCard/CategoryCard";
 
 function Store() {
 

@@ -1,8 +1,17 @@
 import React from 'react'
+import CategoryCard from '../components/CategoryCard/CategoryCard'
+import { DietContainer, DietCategoryContainer } from '../styledcomponents/_Diet'
 
 function Diet() {
   return (
-    <div>diet</div>
+    <DietContainer>
+      <DietCategoryContainer>
+      <CategoryCard/>
+      <CategoryCard/>
+      <CategoryCard/>
+      <CategoryCard/>
+      </DietCategoryContainer>
+    </DietContainer>
   )
 }
 
